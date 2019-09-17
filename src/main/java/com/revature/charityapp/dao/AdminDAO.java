@@ -10,6 +10,7 @@ import java.util.List;
 import com.revature.charityapp.Model.Amount;
 import com.revature.charityapp.Model.Request;
 import com.revature.charityapp.Model.Transaction;
+import com.revature.charityapp.Model.User;
 import com.revature.charityapp.Util.ConnectionUtil;
 import com.revature.charityapp.exception.DBException;
 
@@ -61,14 +62,14 @@ public class AdminDAO implements AdminDAOImp { // implementation of AdminDAOImp 
 	private static Request toRow1(ResultSet rs) throws SQLException {
 
 		int requestId = rs.getInt("request_id");
-		String requestName = rs.getString("category_Id");
+		int requestName = rs.getInt("category_Id");
 		String dateOfRequest = rs.getString("date_of_request");
 		double amount = rs.getInt("amount");
 		String status = rs.getString("status");
 
 		Request requestlist = new Request();
 		requestlist.setRequestId(requestId);
-		requestlist.setCharityName(requestName);
+		requestlist.setCategory_id(requestName);
 		requestlist.setDateOfRequest(dateOfRequest);
 		requestlist.setAmount(amount);
 		requestlist.setStatus(status);
@@ -218,5 +219,39 @@ public class AdminDAO implements AdminDAOImp { // implementation of AdminDAOImp 
 			ConnectionUtil.close(con, pst);
 		}
 
+	}
+	
+	public User findByAdminNamePassword(String name, String password) throws DBException, SQLException {
+		Connection con = ConnectionUtil.getConnection();
+		String sql = "select name,password from admin_details where name = ? and Password = ?";
+		PreparedStatement pst = null;
+		ResultSet rs = null;
+		try {
+			pst = con.prepareStatement(sql);
+			pst.setString(1, name);
+			pst.setString(2, password);
+			rs = pst.executeQuery();
+
+			User user = null;
+
+			if (rs.next()) {
+				user = new User();
+				user = toRow(rs);
+			}
+			return user;
+		} finally {
+			ConnectionUtil.close(con, pst);
+			ConnectionUtil.closeRs(rs);
+		}
+	}
+	private User toRow(ResultSet rs) throws SQLException {
+
+		String name = rs.getString("name");
+		String password = rs.getString("password");
+		User user = new User();
+		user.setName(name);
+		user.setPassword(password);
+
+		return user;
 	}
 }

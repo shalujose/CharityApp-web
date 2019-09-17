@@ -7,8 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import com.revature.charityapp.Model.Category;
-import java.util.Scanner;
-
 import com.revature.charityapp.Model.User;
 //import com.revature.charityapp.Services.AdminServices;
 //import com.revature.charityapp.Services.CharityClass;
@@ -16,7 +14,6 @@ import com.revature.charityapp.Util.ConnectionUtil;
 import com.revature.charityapp.exception.DBException;
 
 public class UserDAO implements IUserDAO {
-	static Scanner sc = new Scanner(System.in);
 
 	public void register(User user) throws DBException {
 
@@ -46,20 +43,21 @@ public class UserDAO implements IUserDAO {
 
 	}
 
-	public User findByNamePassword(String name, String password) throws DBException, SQLException {
+	public User findByNamePassword(String email, String password) throws DBException, SQLException {
 		Connection con = ConnectionUtil.getConnection();
-		String sql = "select id,name,gender,age,address,email,phone,password from donors_details where name = ? and Password = ?";
+		String sql = "select id,name,gender,age,email,phone,password from donors_details where email = ? and Password = ?";
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		try {
 			pst = con.prepareStatement(sql);
-			pst.setString(1, name);
+			pst.setString(1, email);
 			pst.setString(2, password);
 			rs = pst.executeQuery();
 
 			User user = null;
 
 			if (rs.next()) {
+				user = new User();
 				user = toRow(rs);
 			}
 			return user;
@@ -71,38 +69,18 @@ public class UserDAO implements IUserDAO {
 
 	private User toRow(ResultSet rs) throws SQLException {
 
-		String name = rs.getString("name");
+		String email = rs.getString("email");
 		String password = rs.getString("password");
 		int id = rs.getInt("id");
 		User user = new User();
-		user.setName(name);
+		user.setName(email);
 		user.setPassword(password);
 		user.setId(id);
 
 		return user;
 	}
 
-	/*
-	 * public void LoginAdmin() throws Exception { AdminUI.loginAadmin(); Connection
-	 * con = ConnectionUtil.getConnection(); PreparedStatement pst = null; ResultSet
-	 * rs = null; String sqls =
-	 * "select name,password from admin_details where name=? and password=?"; try {
-	 * pst = con.prepareStatement(sqls); pst.setString(1, AdminUI.name);
-	 * pst.setString(2, AdminUI.password); rs = pst.executeQuery(); } catch
-	 * (SQLException e1) { e1.printStackTrace(); }
-	 * 
-	 * try { if (rs.next()) { String name1 = rs.getString("name"); String password1
-	 * = rs.getString("password"); if (AdminUI.name.equals(name1) &&
-	 * AdminUI.password.equals(password1)) { AdminServices.admin_process(); } } else
-	 * { System.out.println("\nPlease enter username and password Carefully");
-	 * IUserDAO iudao = new UserDAO(); iudao.LoginAdmin(); }
-	 * 
-	 * } catch (DBException e) { e.printStackTrace(); throw new
-	 * DBException("Enter valid data "); } finally { ConnectionUtil.close(con, pst);
-	 * ConnectionUtil.closeRs(rs); }
-	 * 
-	 * }
-	 */
+	
 	public static void donateFund(int fundrequest_id, int cate_id, int donor_id, double amount) throws DBException {
 
 		Connection con = null;

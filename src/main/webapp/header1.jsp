@@ -17,19 +17,16 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="index.jsp">Home <span class="sr-only">(current)</span></a>
+          <a class="nav-link" href="donorFeatures.jsp">Home <span class="sr-only">(current)</span></a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="login.jsp">Login</a>
+          <a class="nav-link" href="viewRequest.jsp">View Fund Request</a>
         </li>
          <li class="nav-item">
-          <a class="nav-link" href="register.jsp">Register</a>
+          <a class="nav-link" href="sendDonation.jsp">Donate Now</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="adminLogin.jsp">Admin Login</a>
-        </li>   
          <li class="nav-item">
-          <a class="nav-link" href="about.jsp">About us</a>
+          <a class="nav-link" href="index.jsp">Logout</a>
         </li>      
       </ul>
     </div>

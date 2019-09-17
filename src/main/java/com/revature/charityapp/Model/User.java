@@ -1,12 +1,17 @@
 package com.revature.charityapp.Model;
 
 public class User {
+		@Override
+	public String toString() {
+		return "User [id=" + id + ", name=" + name + ", gender=" + gender + ", age=" + age + ", phone=" + phone
+				+ ", email=" + email + ", password=" + password + "]";
+	}
 		private int id;
 		private String name;
 		private String gender;
 		private int age;
-		private String email;
 		private long phone;
+		private String email;
 		private String password;
 		public int getId() {
 			return id;
@@ -36,7 +41,7 @@ public class User {
 			return email;
 		}
 		public void setEmail(String email) {
-			this.email = email;
+			this.email=email;
 		}
 		public long getPhone() {
 			return phone;
@@ -48,7 +53,7 @@ public class User {
 			return password;
 		}
 		public void setPassword(String password) {
-			this.password = password;
+			this.password=password;
 		}
 		
 }

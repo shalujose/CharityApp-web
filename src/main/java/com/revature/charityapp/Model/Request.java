@@ -2,7 +2,7 @@ package com.revature.charityapp.Model;
 
 public class Request {
 	private int requestId;
-	private String charityName;
+	private int category_id;
 	private String dateOfRequest;
 	private double amount;
 	private String status;
@@ -10,7 +10,7 @@ public class Request {
 	
 	@Override
 	public String toString() {
-		return " [Request Id= " + requestId + "   Charity Name= " + charityName + "   Request Date= " + dateOfRequest
+		return " [Request Id= " + requestId + "   Charity Id= " + category_id + "   Request Date= " + dateOfRequest
 				+ "   Amount= " + amount + "   Request Status= " + status + "]";
 	}
 	public int getRequestId() {
@@ -19,12 +19,7 @@ public class Request {
 	public void setRequestId(int requestId) {
 		this.requestId = requestId;
 	}
-	public String getCharityName() {
-		return charityName;
-	}
-	public void setCharityName(String charityName) {
-		this.charityName = charityName;
-	}
+	
 	public String getDateOfRequest() {
 		return dateOfRequest;
 	}
@@ -42,6 +37,12 @@ public class Request {
 	}
 	public void setStatus(String status) {
 		this.status = status;
+	}
+	public int getCategory_id() {
+		return category_id;
+	}
+	public void setCategory_id(int category_id) {
+		this.category_id = category_id;
 	}
 
 }

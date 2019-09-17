@@ -25,6 +25,14 @@ public class RegisterServlet extends HttpServlet {
 		String email = request.getParameter("email");
 		long phone=Long.parseLong(request.getParameter("phone"));
 		String password = request.getParameter("password");
+		PrintWriter out = response.getWriter();
+		out.print(name);
+		out.print(gender);
+		out.print(age);
+		out.print(email);
+		out.print(phone);
+		out.print(password);
+
 		
 		User user = new User();
 		user.setName(name);
@@ -34,13 +42,15 @@ public class RegisterServlet extends HttpServlet {
 		user.setPhone(phone);
 		user.setPassword(password);
 		
-
+		System.out.println(user);
 		UserService userservice = new UserService();
-		userservice.registerNow(user);
-		
-		PrintWriter out = response.getWriter();
-		out.println("registered");
-        out.flush();
+		try {
+			userservice.registerNow(user);
+	        response.sendRedirect("login.jsp");
+		} catch (Exception e) {
+			e.printStackTrace();
+			response.sendRedirect("index.jsp?errorMessage=" + e.getMessage());
+		}
  
 	}
 }

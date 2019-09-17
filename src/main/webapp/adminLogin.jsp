@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Admin Login</title>
 <link rel="stylesheet" href="css/bootsrap.min.css">
 <script type="js/bootstrap.min.js"></script>
 <style>
@@ -14,34 +14,33 @@
     border-color: #0275d8;
     
     </style>
-
 <script src="js/jquery-3.4.1.min.js"></script>
 </head>
 <body style="text-align:center">
 <jsp:include page="header.jsp"></jsp:include>
 <br><br><br>
-<h2>Please sign in</h2>
+<h2>Admin sign in</h2>
 <br>
 
-<form onsubmit="login()">
+<form onsubmit="adminLogin()">
 
-<input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter valid Emailid" placeholder="Email address" required><br><br>
-<input type="password" name="password" id="password" placeholder="password" required><br>
+<input type="text" name="name" id="name" placeholder="Enter user name" required><br><br>
+<input type="password" name="password" id="password" placeholder="Password" required><br>
 <br>
 <input type = "submit" value = "Sign in" class="btn btn-lg btn-primary btn-block"/>
 
 </form>
 
 <script>
-        function login() {
+        function adminLogin() {
             //alert('register');
             event.preventDefault();
-            var email = document.getElementById("email").value;
+            var name = document.getElementById("name").value;
             var password = document.getElementById("password").value;
-            var formData = "email=" + email + "&password=" + password;
+            var formData = "name=" + name + "&password=" + password;
             console.log(formData);
             //alert(formData);
-            var url = "http://localhost:8080/CharityApp/LoginServlet?" + formData;
+            var url = "http://localhost:8080/CharityApp/AdminLoginServlet?" + formData;
             console.log(url);
             //alert(url);
             var formData = {};
@@ -55,7 +54,7 @@
                     alert("Invalid Username/Password");
                 } else {
                     //alert("valid Username/Password");
-                    window.location.href = "donorFeatures.jsp";
+                    window.location.href = "adminFeatures.jsp";
                 }
             });
         }

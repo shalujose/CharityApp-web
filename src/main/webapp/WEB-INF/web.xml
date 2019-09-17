@@ -16,6 +16,24 @@
   	<description></description>
   	<servlet-class>com.revature.charityapp.Controller.LoginServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>AdminLoginServlet</servlet-name>
+  	<display-name>AdminLoginServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.charityapp.Controller.AdminLoginServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>AddDonationRequestServlet</servlet-name>
+  	<display-name>AddDonationRequestServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.charityapp.Controller.AddDonationRequestServlet</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>ViewRequestServlet</servlet-name>
+  	<display-name>ViewRequestServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.charityapp.Controller.ViewRequestServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>RegisterServlet</servlet-name>
   	<url-pattern>/RegisterServlet</url-pattern>
@@ -23,5 +41,17 @@
   <servlet-mapping>
   	<servlet-name>LoginServlet</servlet-name>
   	<url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AdminLoginServlet</servlet-name>
+  	<url-pattern>/AdminLoginServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>AddDonationRequestServlet</servlet-name>
+  	<url-pattern>/AddDonationRequestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ViewRequestServlet</servlet-name>
+  	<url-pattern>/ViewRequestServlet</url-pattern>
   </servlet-mapping>
 </web-app>
