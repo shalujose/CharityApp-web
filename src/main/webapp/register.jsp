@@ -16,6 +16,7 @@
 <br><br><br>
 
 <h2>Register Now</h2>
+<div>
 <form action="RegisterServlet">
 <br><br>
 
@@ -25,12 +26,12 @@ Gender <input type="radio" value="M" name="gender" id="gender" required>Male
 Age <input type="number" min=18 max=80 name="age" required><br><br>
 Email <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required><br><br>
 Phone <input type="number" name="phone" required><br><br>
-Password<input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Please set your password" required><br><br>
+Password <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Please set your password" required><br><br>
 <input type = "submit" value = "Submit" class="btn btn-success" />
 <input type = "reset" value = "Reset" class="btn btn-success" onclick="window.location.href = 'register.jsp';"/>
 
 </form>
-
+</div>
 <script type="text/javascript">
 
 function register()

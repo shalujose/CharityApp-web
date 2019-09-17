@@ -1,9 +1,12 @@
 package com.revature.charityapp.Services;
 
 import java.sql.SQLException;
+import java.util.List;
 
+import com.revature.charityapp.Model.Transaction;
 import com.revature.charityapp.Model.User;
 import com.revature.charityapp.dao.AdminDAO;
+import com.revature.charityapp.dao.AdminDAOImp;
 import com.revature.charityapp.exception.DBException;
 
 public class AdminService {
@@ -29,4 +32,36 @@ public class AdminService {
 			e.printStackTrace();
 		}
 	}
+	
+	public List<Transaction> viewResponse()
+	{
+		List<Transaction> list=null;
+	    try {
+	    	AdminDAOImp dao= new AdminDAO();
+            try {
+				list = dao.viewResponse();
+			} catch (DBException e) {
+				e.printStackTrace();
+			}
+	        displayTrans(list);
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+		return list;
+	}
+	public static void displayTrans(List<Transaction> list) {
+		StringBuilder content=new StringBuilder();
+        content.append("transaction_id\t\tdate_of_transaction\t\tfundrequest_id\tcate_id\t\tdonor_id\tname\t\tamount\n");
+		for (Transaction admin : list) {
+			 content.append(admin.getTransaction_id()).append("\t\t\t");
+	            content.append(admin.getDate_of_transaction()).append("\t\t\t");
+	            content.append(admin.getFundrequest_id()).append("\t");
+	            content.append(admin.getCate_id()).append("\t\t");
+	            content.append(admin.getDonor_id()).append("\t\t");
+	            content.append(admin.getName()).append("\t\t");
+	            content.append(admin.getAmount()).append("\t\t");
+	            content.append("\n");
+	        }
+	        System.out.println(content);
+		}
 }

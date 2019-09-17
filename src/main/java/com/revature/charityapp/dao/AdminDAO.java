@@ -83,7 +83,7 @@ public class AdminDAO implements AdminDAOImp { // implementation of AdminDAOImp 
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		try {
-			String sql = "select t.transaction_id,t.date_of_transaction,t.fundrequest_id,t.cate_id,d.name,t.donor_id,t.amount from transactions t inner join donors_details d where t.donor_id=d.id group by t.cate_id order by t.donor_id";
+			String sql = "select t.transaction_id,t.date_of_transaction,t.fundrequest_id,t.cate_id,d.name,t.donor_id,t.amount from transactions t inner join donors_details d where t.donor_id=d.id order by t.transaction_id";
 			pst = con.prepareStatement(sql);
 			rs = pst.executeQuery();
 			List<Transaction> list = new ArrayList<Transaction>(); // ArrayList for display the transaction data
