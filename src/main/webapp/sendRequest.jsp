@@ -35,16 +35,16 @@ function addRequest(){
     var amount = document.getElementById("amount").value;
     var formData = "category_Id=" + category_Id + "&amount="+ amount;
     console.log(formData);
-    var url="http://localhost:8080/CharityApp/AddDonationRequestServlet?"+formData;
+    var url="http://localhost:8080/CharityApp/DonateFundServlet?"+formData;
     	console.log(url);
     var formData = {};
     $.get(url, function(response){
             console.log(response);
             var msg = JSON.parse(response);
             if (msg.errorMessage!=null) {
-                alert("Invalid entry");
+                alert("Invalid request");
             } else {
-                alert("valid entry");
+                alert("Your request successfully completed");
                 window.location.href = "adminFeatures.jsp";
             }
             
@@ -63,7 +63,6 @@ function addRequest(){
 <br/>
 
 <button type="submit" class="button">Send</button>
-</form>
 </form>
 <br/>
 

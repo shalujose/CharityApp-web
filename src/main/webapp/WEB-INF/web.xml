@@ -34,6 +34,12 @@
   	<description></description>
   	<servlet-class>com.revature.charityapp.Controller.ViewRequestServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>DonateFundServlet</servlet-name>
+  	<display-name>DonateFundServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.charityapp.Controller.DonateFundServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>RegisterServlet</servlet-name>
   	<url-pattern>/RegisterServlet</url-pattern>
@@ -53,5 +59,9 @@
   <servlet-mapping>
   	<servlet-name>ViewRequestServlet</servlet-name>
   	<url-pattern>/ViewRequestServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>DonateFundServlet</servlet-name>
+  	<url-pattern>/DonateFundServlet</url-pattern>
   </servlet-mapping>
 </web-app>

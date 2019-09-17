@@ -59,4 +59,12 @@ public class UserService {
 	        }
 	        System.out.println(content);
 		}
+	public void donateFundService(int fundrequest_id, int cate_id, int donor_id, double amount) {
+		
+		try {
+			UserDAO.donateFund(fundrequest_id, cate_id, donor_id, amount);
+		} catch (DBException e) {
+			e.printStackTrace();
+		}
+	}
 }
