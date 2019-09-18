@@ -12,6 +12,11 @@
     color: #fff;
     background-color: #0275d8;
     border-color: #0275d8;
+    display: inline-block;
+    padding: 3px 30px;
+  font-size: 18px;
+  margin: 2px 2px;
+  cursor: pointer;
     
     </style>
 <script src="js/jquery-3.4.1.min.js"></script>
@@ -27,7 +32,7 @@
 <input type="text" name="name" id="name" placeholder="Enter user name" required><br><br>
 <input type="password" name="password" id="password" placeholder="Password" required><br>
 <br>
-<input type = "submit" value = "Sign in" class="btn btn-lg btn-primary btn-block"/>
+<input type = "submit" value = "Sign in" class="btn-primary"/>
 
 </form>
 

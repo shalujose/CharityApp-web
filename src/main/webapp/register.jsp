@@ -20,7 +20,7 @@
 <form action="RegisterServlet">
 <br><br>
 
-Name <input type="text" name="name" id="name" placeholder="Enter your name" required><br><br>
+Name <input type="text" name="name" id="name" placeholder="Enter your name" required autofocus><br><br>
 Gender <input type="radio" value="M" name="gender" id="gender" required>Male
 <input type="radio" value="F" name="gender" required>Female <br><br>
 Age <input type="number" min=18 max=80 name="age" required><br><br>
@@ -28,7 +28,7 @@ Email <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z
 Phone <input type="number" name="phone" required><br><br>
 Password <input type="password" name="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" placeholder="Please set your password" required><br><br>
 <input type = "submit" value = "Submit" class="btn btn-success" />
-<input type = "reset" value = "Reset" class="btn btn-success" onclick="window.location.href = 'register.jsp';"/>
+&nbsp;&nbsp;<input type = "reset" value = "Reset" class="btn btn-success" onclick="window.location.href = 'register.jsp';"/>
 
 </form>
 </div>

@@ -12,7 +12,11 @@
     color: #fff;
     background-color: #0275d8;
     border-color: #0275d8;
-    
+    display: inline-block;
+    padding: 3px 30px;
+  font-size: 18px;
+  margin: 2px 2px;
+  cursor: pointer;
     </style>
 
 <script src="js/jquery-3.4.1.min.js"></script>
@@ -25,13 +29,13 @@
 
 <form onsubmit="login()">
 
-<input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter valid Emailid" placeholder="Email address" required><br><br>
+<input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" title="Enter valid Emailid" placeholder="Email address" required autofocus><br><br>
 <input type="password" name="password" id="password" placeholder="password" required><br>
 <br>
-<input type = "submit" value = "Sign in" class="btn btn-lg btn-primary btn-block"/>
+<input type = "submit" value = "Sign in" class="btn-primary"/>
 
 </form>
-
+<br><a href="register.jsp">New User?</a>
 <script>
         function login() {
             //alert('register');
@@ -43,22 +47,24 @@
             //alert(formData);
             var url = "http://localhost:8080/CharityApp/LoginServlet?" + formData;
             console.log(url);
-            //alert(url);
+            
             var formData = {};
             $.get(url, function(response) {
                 console.log(response);
                 console.log(response.errorMessage);
+                //localStorage.setItem("LOGGED_IN_USER",JSON.Stringify(response));
                 var msg=JSON.parse(response);
                 //alert(msg);
                 
                 if (msg.errorMessage!=null) {
                     alert("Invalid Username/Password");
                 } else {
-                    //alert("valid Username/Password");
+                    alert("Successfully loged in");
                     window.location.href = "donorFeatures.jsp";
                 }
             });
         }
     </script>
 </body>
+
 </html>

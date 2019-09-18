@@ -5,11 +5,15 @@
  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src = "js/bootstrap.min.js"></script>
 <script src="js/jquery-3.4.1.min.js"></script>
+
+<style>
+body {background-color: #F5F5DC;}
+</style>
  </head>
 <body>
 <div class="container">
   <!-- Fixed navbar -->
-  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark" style="background-color: powderblue;8;">
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color:#050942">
     <a class="navbar-brand" href="#">TheCharity</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -35,4 +39,3 @@
     </div>
     </div>
   </nav>
-</header>

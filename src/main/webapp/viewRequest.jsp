@@ -23,6 +23,7 @@ for(let ld of list){
     content += "<tr>";
     content += "<td>" + ld.requestId + "</td>";
     content += "<td>" + ld.category_id + "</td>";
+    content += "<td>" + ld.category_name + "</td>";
     content += "<td>" + ld.dateOfRequest + "</td>";
     content += "<td>" + ld.amount + "</td>";
     content += "<td>" + ld.status + "</td>";
@@ -49,6 +50,7 @@ document.getElementById("tbody").innerHTML =  content;
                    <tr>
                        <th>RequestId</th>
                        <th>CategoryId</th>
+                       <th>CategoryName</th>
                        <th>Date-Of-Request</th>
                        <th>Amount</th>
                        <th>Status</th>
@@ -64,7 +66,9 @@ document.getElementById("tbody").innerHTML =  content;
 listDonation();
 </script>
 <br>
-<a href="donorFeatures.jsp">Home</a>&nbsp;&nbsp;&nbsp;
+<div style="text-align:center">
+<a href="donorFeatures.jsp">Home</a>&nbsp;&nbsp;&nbsp;&nbsp;
 <a href="sendDonation.jsp">Donate Now</a>
+</div>
 </body>
 </html>

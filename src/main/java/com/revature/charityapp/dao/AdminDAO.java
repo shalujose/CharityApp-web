@@ -44,7 +44,7 @@ public class AdminDAO implements AdminDAOImp { // implementation of AdminDAOImp 
 		PreparedStatement pst = null;
 		ResultSet rs = null;
 		try {
-			String sql = "select request_id,category_Id,date_of_request,amount,status from fund_request where status='Open' order by date_of_request";
+			String sql = "select r.request_id,r.category_Id,r.date_of_request,r.amount,r.status,c.category_name from fund_request r inner join request_category c where r.category_Id=c.category_id and status='Open' order by date_of_request";
 			pst = con.prepareStatement(sql);
 			rs = pst.executeQuery();
 			List<Request> list = new ArrayList<Request>(); // ArrayList for display the table data
@@ -63,6 +63,7 @@ public class AdminDAO implements AdminDAOImp { // implementation of AdminDAOImp 
 
 		int requestId = rs.getInt("request_id");
 		int requestName = rs.getInt("category_Id");
+		String categoryName=rs.getString("category_name");
 		String dateOfRequest = rs.getString("date_of_request");
 		double amount = rs.getInt("amount");
 		String status = rs.getString("status");
@@ -70,6 +71,7 @@ public class AdminDAO implements AdminDAOImp { // implementation of AdminDAOImp 
 		Request requestlist = new Request();
 		requestlist.setRequestId(requestId);
 		requestlist.setCategory_id(requestName);
+		requestlist.setCategory_name(categoryName);
 		requestlist.setDateOfRequest(dateOfRequest);
 		requestlist.setAmount(amount);
 		requestlist.setStatus(status);

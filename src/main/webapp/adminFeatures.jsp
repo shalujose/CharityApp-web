@@ -12,9 +12,9 @@
 <body style="text-align:center">
 <jsp:include page="header2.jsp"></jsp:include>
 
-<br><br><br>
+<br><br><br><br><br>
 <a href="sendRequest.jsp">Send Fund Request</a><br><br>
-<a href="addCategory.jsp">Update Category</a><br><br>
+<a href="addCategory.jsp">Add New Category</a><br><br>
 <a href="viewTransaction.jsp">View Donations</a><br><br>
 <a href="closeRequest.jsp">Close Request</a><br><br>
 <a href="index.jsp">Logout</a><br>

@@ -48,10 +48,11 @@ public class UserService {
 	}
 	public static void display(List<Request> list) {
 		StringBuilder content=new StringBuilder();
-        content.append("request_id\tcategory_Id\t\t\tdate_of_request\t\t\tamount\t\tstatus\n");
+        content.append("request_id\tcategory_Id\t\tcategory_name\t\t\tdate_of_request\t\t\tamount\t\tstatus\n");
 		for (Request admin : list) {
 			 content.append(admin.getRequestId()).append("\t\t\t");
 	            content.append(admin.getCategory_id()).append("\t\t\t");
+	            content.append(admin.getCategory_name()).append("\t\t");
 	            content.append(admin.getDateOfRequest()).append("\t\t");
 	            content.append(admin.getAmount()).append("\t\t");
 	            content.append(admin.getStatus()).append("\t\t");

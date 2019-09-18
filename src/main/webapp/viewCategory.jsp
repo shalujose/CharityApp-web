@@ -10,9 +10,9 @@
 <script src="js/jquery-3.4.1.min.js"></script>
 
 <script>
-function listDonation(){
+function listcategory(){
     
-var url="http://localhost:8080/CharityApp/ViewDonationResponseServlet";
+var url="http://localhost:8080/CharityApp/ViewCategoryServlet";
 $.getJSON(url,function(response){
     var list = response;
      document.getElementById("tbody").innerHTML="";
@@ -20,13 +20,8 @@ $.getJSON(url,function(response){
 for(let ld of list){
     console.log(list);
     content += "<tr>";
-    content += "<td>" + ld.transaction_id + "</td>";
-    content += "<td>" + ld.date_of_transaction + "</td>";
-    content += "<td>" + ld.fundrequest_id + "</td>";
-    content += "<td>" + ld.cate_id + "</td>";
-    content += "<td>" + ld.donor_id + "</td>";
-    content += "<td>" + ld.name + "</td>";
-    content += "<td>" + ld.amount + "</td>";
+    content += "<td>" + ld.category_id + "</td>";
+    content += "<td>" + ld.category_name + "</td>";
     
     content += "</tr>";
 }
@@ -38,10 +33,10 @@ document.getElementById("tbody").innerHTML =  content;
 </head>
 <body style="text-align:center">
 <jsp:include page="header2.jsp"></jsp:include>
+<br><br><br>
+<h5>Category Details</h5>
 
-<h3>Donation Details</h3>
-<br>
-<form onsubmit = "listDonation()"> </form> 
+<form onsubmit = "listcategory()"> </form> 
 <div class="container-fluid">
    <div class="row">
        <div class="col">
@@ -49,13 +44,8 @@ document.getElementById("tbody").innerHTML =  content;
            <table border="1" class="table table-condensed" id="tbl">
                <thead>
                    <tr>
-                       <th>TransactionId</th>
-                       <th>Date-of-transaction</th>
-                       <th>FundRequestId</th>
                        <th>CategoryId</th>
-                       <th>DonorId</th>
-                       <th>Donor-Name</th>
-                       <th>Amount</th>
+                       <th>Category-Name</th>
                    </tr>
                </thead>
                <tbody id="tbody">
@@ -65,11 +55,11 @@ document.getElementById("tbody").innerHTML =  content;
    </div>
 </div>
 <script>
-listDonation();
+listcategory();
 </script>
-<br>
+
 <a href="adminFeatures.jsp">Home</a>&nbsp;&nbsp;&nbsp;
-<a href="sendRequest.jsp">New Fund Request</a>
+<a href="addCategory.jsp">New Category</a>
 </body>
 </body>
 </html>

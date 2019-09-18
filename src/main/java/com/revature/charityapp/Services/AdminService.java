@@ -3,10 +3,13 @@ package com.revature.charityapp.Services;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.revature.charityapp.Model.Category;
 import com.revature.charityapp.Model.Transaction;
 import com.revature.charityapp.Model.User;
 import com.revature.charityapp.dao.AdminDAO;
 import com.revature.charityapp.dao.AdminDAOImp;
+import com.revature.charityapp.dao.IUserDAO;
+import com.revature.charityapp.dao.UserDAO;
 import com.revature.charityapp.exception.DBException;
 
 public class AdminService {
@@ -28,6 +31,13 @@ public class AdminService {
 	public void sendFundRequest(int category_Id, double amount) throws Exception {
 		try {
 			admindao.fund_request(category_Id,amount);
+		} catch (DBException e) {
+			e.printStackTrace();
+		}
+	}
+	public void addCategory(String category_name) {
+		try {
+			admindao.addCategory(category_name);
 		} catch (DBException e) {
 			e.printStackTrace();
 		}
@@ -60,6 +70,30 @@ public class AdminService {
 	            content.append(admin.getDonor_id()).append("\t\t");
 	            content.append(admin.getName()).append("\t\t");
 	            content.append(admin.getAmount()).append("\t\t");
+	            content.append("\n");
+	        }
+	        System.out.println(content);
+		}
+	public List<Category> viewCategory()
+	{
+		List<Category> list=null;
+	    try {
+	    	IUserDAO dao= new UserDAO();
+            list = dao.displayCategory();
+            displayCategory(list);
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+		return list;
+	}
+	public static void displayCategory(List<Category> list) {
+		StringBuilder content=new StringBuilder();
+        content.append("category_id\t\tcategory_name\n");
+		for (Category admin : list) {
+			 content.append(admin.getCategory_id()).append("\t\t");
+	            content.append(admin.getCategory_name()).append("\t\t");
+	            //content.append(admin.getFundrequest_id()).append("\t");
+	            
 	            content.append("\n");
 	        }
 	        System.out.println(content);
