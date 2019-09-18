@@ -58,6 +58,12 @@
   	<description></description>
   	<servlet-class>com.revature.charityapp.Controller.ViewCategoryServlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>CloseRequestServlet</servlet-name>
+  	<display-name>CloseRequestServlet</display-name>
+  	<description></description>
+  	<servlet-class>com.revature.charityapp.Controller.CloseRequestServlet</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>RegisterServlet</servlet-name>
   	<url-pattern>/RegisterServlet</url-pattern>
@@ -93,5 +99,9 @@
   <servlet-mapping>
   	<servlet-name>ViewCategoryServlet</servlet-name>
   	<url-pattern>/ViewCategoryServlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>CloseRequestServlet</servlet-name>
+  	<url-pattern>/CloseRequestServlet</url-pattern>
   </servlet-mapping>
 </web-app>

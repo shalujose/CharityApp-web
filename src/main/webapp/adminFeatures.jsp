@@ -14,6 +14,7 @@
 
 <br><br><br><br><br>
 <a href="sendRequest.jsp">Send Fund Request</a><br><br>
+<a href="viewCategory.jsp">View Categories</a><br><br>
 <a href="addCategory.jsp">Add New Category</a><br><br>
 <a href="viewTransaction.jsp">View Donations</a><br><br>
 <a href="closeRequest.jsp">Close Request</a><br><br>

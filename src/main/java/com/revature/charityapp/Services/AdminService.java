@@ -3,6 +3,7 @@ package com.revature.charityapp.Services;
 import java.sql.SQLException;
 import java.util.List;
 
+import com.revature.charityapp.Model.Amount;
 import com.revature.charityapp.Model.Category;
 import com.revature.charityapp.Model.Transaction;
 import com.revature.charityapp.Model.User;
@@ -93,6 +94,31 @@ public class AdminService {
 			 content.append(admin.getCategory_id()).append("\t\t");
 	            content.append(admin.getCategory_name()).append("\t\t");
 	            //content.append(admin.getFundrequest_id()).append("\t");
+	            
+	            content.append("\n");
+	        }
+	        System.out.println(content);
+		}
+	
+	public List<Amount> closeRequest()
+	{
+		List<Amount> list=null;
+	    try {
+	    	AdminDAOImp dao= new AdminDAO();
+            list = dao.matchAmount();
+            displayAmount(list);
+	    } catch (SQLException e) {
+	        e.printStackTrace();
+	    }
+		return list;
+	}
+	public static void displayAmount(List<Amount> list) {
+		StringBuilder content=new StringBuilder();
+        content.append("request_id\t\tTargetAmount\t\tDonatedAmount\n");
+		for (Amount admin : list) {
+			 content.append(admin.getRequestId()).append("\t\t");
+	            content.append(admin.getRequestAmount()).append("\t\t");
+	            content.append(admin.getTotalAmount()).append("\t");
 	            
 	            content.append("\n");
 	        }
